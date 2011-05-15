@@ -12,9 +12,11 @@
 #import "RootViewController.h"
 #import "StackScrollViewController.h"
 
+#define kCellText @"CellText"
+#define kCellImage @"CellImage"
+
 @implementation MenuViewController
 @synthesize tableView = _tableView;
-
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -22,6 +24,14 @@
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super init]) {
 		[self.view setFrame:frame]; 
+		
+		_cellContents = [[NSMutableArray alloc] init];
+		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"08-chat.png"], kCellImage, NSLocalizedString(@"Timeline",@""), kCellText, nil]];
+		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"22-skull-n-bones.png"], kCellImage, NSLocalizedString(@"Mentions",@""), kCellText, nil]];
+		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"22-skull-n-bones.png"], kCellImage, NSLocalizedString(@"Lists",@""), kCellText, nil]];
+		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"18-envelope.png"], kCellImage, NSLocalizedString(@"Messages",@""), kCellText, nil]];
+		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"111-user.png"], kCellImage, NSLocalizedString(@"Profile",@""), kCellText, nil]];
+		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"06-magnify.png"], kCellImage, NSLocalizedString(@"Search",@""), kCellText, nil]];
 		
 		_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
 		[_tableView setDelegate:self];
@@ -69,7 +79,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    return [_cellContents count];
 }
 
 
@@ -85,10 +95,8 @@
 		[cell setSelectedBackgroundView:bgView];
     }
     
-    // Configure the cell...
-	cell.textLabel.text = [NSString stringWithFormat:@"Menu %d", indexPath.row +1];
-	[cell.textLabel setTextColor:[UIColor whiteColor]];
-
+	cell.textLabel.text = [[_cellContents objectAtIndex:indexPath.row] objectForKey:kCellText];
+	cell.imageView.image = [[_cellContents objectAtIndex:indexPath.row] objectForKey:kCellImage];
 
     return cell;
 }
@@ -115,6 +123,7 @@
 
 
 - (void)dealloc {
+	[_cellContents release];
     [super dealloc];
 }
 

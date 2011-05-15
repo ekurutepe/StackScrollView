@@ -11,6 +11,7 @@
 
 @interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	UITableView*  _tableView;
+	NSMutableArray* _cellContents;
 }
 - (id)initWithFrame:(CGRect)frame;
 
