@@ -30,6 +30,7 @@
 #import "RoundedUITableView.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define kCornerRadius 6.f
 
 @implementation RoundedUITableViewMask
 
@@ -47,7 +48,6 @@
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGFloat cornerRadius = 10.0;
     CGFloat minx = CGRectGetMinX(rect);
     CGFloat midx = CGRectGetMidX(rect);
     CGFloat maxx = CGRectGetMaxX(rect);
@@ -56,10 +56,10 @@
     CGFloat maxy = CGRectGetMaxY(rect);
     
     CGContextMoveToPoint(context, minx, midy);
-    CGContextAddArcToPoint(context, minx, miny, midx, miny, cornerRadius);
-    CGContextAddArcToPoint(context, maxx, miny, maxx, midy, cornerRadius);
-    CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, cornerRadius);
-    CGContextAddArcToPoint(context, minx, maxy, minx, midy, cornerRadius);
+    CGContextAddArcToPoint(context, minx, miny, midx, miny, kCornerRadius);
+    CGContextAddArcToPoint(context, maxx, miny, maxx, midy, kCornerRadius);
+    CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, kCornerRadius);
+    CGContextAddArcToPoint(context, minx, maxy, minx, midy, kCornerRadius);
     CGContextClosePath(context);
     CGContextFillPath(context);
 }
@@ -80,7 +80,7 @@
 - (void)setupView {
     mask = [[RoundedUITableViewMask alloc] initWithFrame:CGRectZero]; 
     self.layer.mask = mask.layer;
-    self.layer.cornerRadius = 10;
+    self.layer.cornerRadius = kCornerRadius;
     self.showsVerticalScrollIndicator = NO;
     self.showsHorizontalScrollIndicator = NO;    
 }
