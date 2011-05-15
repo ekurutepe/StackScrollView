@@ -86,8 +86,8 @@
 }
 
 
-- (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+- (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)aTableStyle {
+    if (self = [super initWithFrame:frame style:aTableStyle]) {
 		[self setupView];
     }
 	

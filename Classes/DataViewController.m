@@ -10,6 +10,7 @@
 #import "StackScrollViewAppDelegate.h"
 #import "RootViewController.h"
 #import "StackScrollViewController.h"
+#import "RoundedUITableView.h"
 
 @implementation DataViewController
 @synthesize tableView = _tableView;
@@ -21,10 +22,10 @@
     if (self = [super init]) {
 		[self.view setFrame:frame]; 
 
-		_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+		_tableView = [[RoundedUITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
 		[_tableView setDelegate:self];
 		[_tableView setDataSource:self];
-		[_tableView setBackgroundColor:[UIColor clearColor]];
+		_tableView.backgroundColor = [UIColor whiteColor];
 		_tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
 		[self.view addSubview:_tableView];
 	}

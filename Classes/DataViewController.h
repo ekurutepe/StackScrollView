@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class RoundedUITableView;
+
 @interface DataViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-	UITableView*  _tableView;
+	RoundedUITableView*  _tableView;
 }
 
 - (id)initWithFrame:(CGRect)frame;
 
 
-@property(nonatomic, retain)UITableView* tableView;
+@property(nonatomic, retain) RoundedUITableView* tableView;
 
 @end

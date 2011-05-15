@@ -665,9 +665,7 @@ const NSInteger SLIDE_VIEWS_START_X_POS = 0;
 		[[borderViews viewWithTag:2] setHidden:TRUE];
 		[[borderViews viewWithTag:1] setHidden:TRUE];
 	}
-	
-	[controller.view setBackgroundColor:[UIColor whiteColor]];
-	
+		
 	if ([slideViews.subviews count] != 0) {
 		UIViewWithShadow* verticalLineView = [[[UIViewWithShadow alloc] initWithFrame:CGRectMake(-40, 0, 40 , self.view.frame.size.height)] autorelease];
 		[verticalLineView setBackgroundColor:[UIColor clearColor]];
