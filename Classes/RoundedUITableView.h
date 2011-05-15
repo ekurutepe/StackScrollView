@@ -31,8 +31,9 @@
 
 
 @interface RoundedUITableViewMask : UIView {
+	BOOL _squareCorners;
 }
-
+@property BOOL squareCorners;
 
 @end
 

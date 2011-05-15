@@ -33,17 +33,17 @@
 #define kCornerRadius 6.f
 
 @implementation RoundedUITableViewMask
-
+@synthesize squareCorners = _squareCorners;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
         self.userInteractionEnabled = NO;
+		self.squareCorners = NO;
     }
     
     return self;
 }
-
 
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -54,12 +54,22 @@
     CGFloat miny = CGRectGetMinY(rect);
     CGFloat midy = CGRectGetMidY(rect);
     CGFloat maxy = CGRectGetMaxY(rect);
-    
-    CGContextMoveToPoint(context, minx, midy);
-    CGContextAddArcToPoint(context, minx, miny, midx, miny, kCornerRadius);
-    CGContextAddArcToPoint(context, maxx, miny, maxx, midy, kCornerRadius);
-    CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, kCornerRadius);
-    CGContextAddArcToPoint(context, minx, maxy, minx, midy, kCornerRadius);
+	
+	CGContextMoveToPoint(context, minx, midy);
+	
+	if (self.squareCorners) {
+		CGContextAddLineToPoint(context, minx, miny);							// move to bottom-left
+		CGContextAddLineToPoint(context, midx, miny);							// move to botttom-mid
+		CGContextAddArcToPoint(context, maxx, miny, maxx, midy, kCornerRadius); // add an arc in the bottom right corner
+		CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, kCornerRadius); // add an arc in the top right corner
+		CGContextAddLineToPoint(context, minx, maxy);							// move to top-left
+	} else {		
+		CGContextAddArcToPoint(context, minx, miny, midx, miny, kCornerRadius);
+		CGContextAddArcToPoint(context, maxx, miny, maxx, midy, kCornerRadius);
+		CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, kCornerRadius);
+		CGContextAddArcToPoint(context, minx, maxy, minx, midy, kCornerRadius);		
+	}
+	
     CGContextClosePath(context);
     CGContextFillPath(context);
 }
@@ -69,9 +79,7 @@
     [super dealloc];
 }
 
-
 @end
-
 
 
 @implementation RoundedUITableView
@@ -80,7 +88,6 @@
 - (void)setupView {
     mask = [[RoundedUITableViewMask alloc] initWithFrame:CGRectZero]; 
     self.layer.mask = mask.layer;
-    self.layer.cornerRadius = kCornerRadius;
     self.showsVerticalScrollIndicator = NO;
     self.showsHorizontalScrollIndicator = NO;    
 }
