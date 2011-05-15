@@ -34,16 +34,14 @@
 	BOOL _squareCorners;
 }
 @property BOOL squareCorners;
-
 @end
 
 
 @interface RoundedUITableView : UITableView {
     RoundedUITableViewMask *mask;
+	BOOL squareCorners;
 }
-
+@property BOOL squareCorners;
 
 - (void)adjustMask;
-
-
 @end

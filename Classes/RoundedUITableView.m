@@ -83,11 +83,11 @@
 
 
 @implementation RoundedUITableView
-
+@synthesize squareCorners;
 
 - (void)setupView {
-    mask = [[RoundedUITableViewMask alloc] initWithFrame:CGRectZero]; 
-    self.layer.mask = mask.layer;
+	mask = nil;
+	squareCorners = NO;
     self.showsVerticalScrollIndicator = NO;
     self.showsHorizontalScrollIndicator = NO;    
 }
@@ -112,6 +112,12 @@
 
 
 - (void)adjustMask {
+	if (nil == mask) {
+		mask = [[RoundedUITableViewMask alloc] initWithFrame:CGRectZero];
+		mask.squareCorners = self.squareCorners;
+		self.layer.mask = mask.layer;
+	}
+	
     // Re-calculate the size of the mask to account for adding/removing rows.
     CGRect frame = mask.frame;
     if(self.contentSize.height > self.frame.size.height) {

@@ -14,7 +14,7 @@
 	RoundedUITableView*  _tableView;
 }
 
-- (id)initWithFrame:(CGRect)frame;
+- (id)initWithFrame:(CGRect)frame squareCorners:(BOOL)squareCorners;
 
 
 @property(nonatomic, retain) RoundedUITableView* tableView;
