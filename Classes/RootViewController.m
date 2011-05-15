@@ -96,7 +96,7 @@
 	
 	[rootView addSubview:leftMenuView];
 	[rootView addSubview:rightSlideView];
-	[self.view setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"backgroundImage_repeat.png"]]];
+	self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
 	[self.view addSubview:rootView];
 }
 
