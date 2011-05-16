@@ -12,6 +12,8 @@
 
 @interface DataViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	RoundedUITableView*  _tableView;
+	
+	NSArray *tweets;
 }
 
 - (id)initWithFrame:(CGRect)frame squareCorners:(BOOL)squareCorners;

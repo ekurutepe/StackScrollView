@@ -11,6 +11,7 @@
 #import "RootViewController.h"
 #import "StackScrollViewController.h"
 #import "RoundedUITableView.h"
+#import "TweetTableViewCell.h"
 
 @implementation DataViewController
 @synthesize tableView = _tableView;
@@ -18,9 +19,13 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-- (id)initWithFrame:(CGRect)frame squareCorners:(BOOL)squareCorners {
-    if (self = [super init]) {
-		[self.view setFrame:frame]; 
+- (id)initWithFrame:(CGRect)frame squareCorners:(BOOL)squareCorners
+{
+    if (self = [super init])
+	{
+		tweets = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tweets" ofType:@"plist"]];
+		
+		[self.view setFrame:frame];
 
 		_tableView = [[RoundedUITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
 		_tableView.squareCorners = squareCorners;
@@ -60,25 +65,32 @@
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 5;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [tweets count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return [TweetTableViewCell heightForTweetWithText:[[tweets objectAtIndex:indexPath.row] objectForKey:@"text"]];
+}
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    TweetTableViewCell *cell = (TweetTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+ 
+	if (cell == nil) {
+        cell = [[[TweetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+	
+	NSDictionary *tweet = [tweets objectAtIndex:indexPath.row];
     
-    // Configure the cell...
-	cell.textLabel.text = [NSString stringWithFormat:@"Data %d", indexPath.row];
-	cell.textLabel.textColor = [UIColor blackColor];
+	cell.imageView.image = [UIImage imageNamed:@"avatar.png"];
+	cell.authorLabel.text = [[tweet objectForKey:@"user"] objectForKey:@"screen_name"];
+	cell.tweetLabel.text = [tweet objectForKey:@"text"];
 
     return cell;
 }
@@ -105,6 +117,7 @@
 
 
 - (void)dealloc {
+	[tweets release];
     [super dealloc];
 }
 

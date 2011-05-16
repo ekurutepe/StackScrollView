@@ -18,6 +18,7 @@
 		937FAFFF1380BF5C00507E51 /* MenuWatermarkFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 937FAFFE1380BF5C00507E51 /* MenuWatermarkFooter.m */; };
 		937FB0011380C02100507E51 /* watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 937FB0001380C02100507E51 /* watermark.png */; };
 		937FB00D1380C53100507E51 /* tweets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 937FB00C1380C53100507E51 /* tweets.plist */; };
+		937FB01F1380C99200507E51 /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 937FB01E1380C99200507E51 /* TweetTableViewCell.m */; };
 		93D1B7DD1380626C0094D5A5 /* RoundedUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B7DC1380626C0094D5A5 /* RoundedUITableView.m */; };
 		93D1BA6F138098FF0094D5A5 /* 06-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D1BA69138098FF0094D5A5 /* 06-magnify.png */; };
 		93D1BA70138098FF0094D5A5 /* 08-chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D1BA6A138098FF0094D5A5 /* 08-chat.png */; };
@@ -54,6 +55,8 @@
 		937FAFFE1380BF5C00507E51 /* MenuWatermarkFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuWatermarkFooter.m; sourceTree = "<group>"; };
 		937FB0001380C02100507E51 /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermark.png; sourceTree = "<group>"; };
 		937FB00C1380C53100507E51 /* tweets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tweets.plist; sourceTree = "<group>"; };
+		937FB01D1380C99200507E51 /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetTableViewCell.h; sourceTree = "<group>"; };
+		937FB01E1380C99200507E51 /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
 		93D1B7DB1380626C0094D5A5 /* RoundedUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedUITableView.h; sourceTree = "<group>"; };
 		93D1B7DC1380626C0094D5A5 /* RoundedUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedUITableView.m; sourceTree = "<group>"; };
 		93D1BA69138098FF0094D5A5 /* 06-magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-magnify.png"; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				937FAFAB1380B52D00507E51 /* MenuHeaderView.m */,
 				937FAFFD1380BF5C00507E51 /* MenuWatermarkFooter.h */,
 				937FAFFE1380BF5C00507E51 /* MenuWatermarkFooter.m */,
+				937FB01D1380C99200507E51 /* TweetTableViewCell.h */,
+				937FB01E1380C99200507E51 /* TweetTableViewCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				93D1BA8513809B570094D5A5 /* MenuTableViewCell.m in Sources */,
 				937FAFAC1380B52D00507E51 /* MenuHeaderView.m in Sources */,
 				937FAFFF1380BF5C00507E51 /* MenuWatermarkFooter.m in Sources */,
+				937FB01F1380C99200507E51 /* TweetTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
