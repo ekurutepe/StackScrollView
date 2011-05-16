@@ -12,6 +12,7 @@
 #import "RootViewController.h"
 #import "StackScrollViewController.h"
 #import "MenuTableViewCell.h"
+#import "MenuHeaderView.h"
 
 #define kCellText @"CellText"
 #define kCellImage @"CellImage"
@@ -24,7 +25,11 @@
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super init]) {
-		[self.view setFrame:frame]; 
+		[self.view setFrame:frame];
+		
+		_menuHeader = [[MenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, 200, 70)];
+		_menuHeader.imageView.image = [UIImage imageNamed:@"avatar.png"];
+		_menuHeader.textLabel.text = @"cocoacontrols";
 		
 		_cellContents = [[NSMutableArray alloc] init];
 		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"08-chat.png"], kCellImage, NSLocalizedString(@"Timeline",@""), kCellText, nil]];
@@ -105,6 +110,16 @@
 #pragma mark -
 #pragma mark Table view delegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 70;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	return _menuHeader;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DataViewController *dataViewController = [[DataViewController alloc] initWithFrame:CGRectMake(0, 0, 477, self.view.frame.size.height) squareCorners:NO];
 	[[StackScrollViewAppDelegate instance].rootViewController.stackScrollViewController addViewInSlider:dataViewController invokeByController:self isStackStartView:TRUE];
@@ -123,6 +138,7 @@
 
 
 - (void)dealloc {
+	[_menuHeader release];
 	[_cellContents release];
     [super dealloc];
 }

@@ -22,7 +22,7 @@
 		self.selectedBackgroundView = bgView;
 		[bgView release];
 				
-		self.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont labelFontSize]];
+		self.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
 		self.textLabel.shadowOffset = CGSizeMake(0, 2);
 		self.textLabel.shadowColor = [UIColor colorWithWhite:0 alpha:0.25];
 		

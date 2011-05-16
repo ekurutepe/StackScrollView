@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h> 
 
+@class MenuHeaderView;
 
 @interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	UITableView*  _tableView;
 	NSMutableArray* _cellContents;
+	MenuHeaderView* _menuHeader;
 }
 - (id)initWithFrame:(CGRect)frame;
 

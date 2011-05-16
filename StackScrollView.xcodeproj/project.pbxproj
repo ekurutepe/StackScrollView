@@ -13,6 +13,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2752544413790ADD005E9019 /* StackScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2752544313790ADD005E9019 /* StackScrollViewController.m */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		937FAFAC1380B52D00507E51 /* MenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 937FAFAB1380B52D00507E51 /* MenuHeaderView.m */; };
+		937FAFB51380B7B600507E51 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 937FAFB41380B7B600507E51 /* avatar.png */; };
 		93D1B7DD1380626C0094D5A5 /* RoundedUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B7DC1380626C0094D5A5 /* RoundedUITableView.m */; };
 		93D1BA6F138098FF0094D5A5 /* 06-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D1BA69138098FF0094D5A5 /* 06-magnify.png */; };
 		93D1BA70138098FF0094D5A5 /* 08-chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D1BA6A138098FF0094D5A5 /* 08-chat.png */; };
@@ -42,6 +44,9 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* StackScrollView_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackScrollView_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* StackScrollView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "StackScrollView-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		937FAFAA1380B52D00507E51 /* MenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuHeaderView.h; sourceTree = "<group>"; };
+		937FAFAB1380B52D00507E51 /* MenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHeaderView.m; sourceTree = "<group>"; };
+		937FAFB41380B7B600507E51 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		93D1B7DB1380626C0094D5A5 /* RoundedUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedUITableView.h; sourceTree = "<group>"; };
 		93D1B7DC1380626C0094D5A5 /* RoundedUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedUITableView.m; sourceTree = "<group>"; };
 		93D1BA69138098FF0094D5A5 /* 06-magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-magnify.png"; sourceTree = "<group>"; };
@@ -99,6 +104,8 @@
 				93D1B7DC1380626C0094D5A5 /* RoundedUITableView.m */,
 				93D1BA8313809B570094D5A5 /* MenuTableViewCell.h */,
 				93D1BA8413809B570094D5A5 /* MenuTableViewCell.m */,
+				937FAFAA1380B52D00507E51 /* MenuHeaderView.h */,
+				937FAFAB1380B52D00507E51 /* MenuHeaderView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -136,6 +143,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				937FAFB41380B7B600507E51 /* avatar.png */,
 				93D1BAD213809E780094D5A5 /* glow.png */,
 				C1D438961317D30A00D5EE69 /* backgroundImage_repeat.png */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
@@ -234,6 +242,7 @@
 				93D1BA72138098FF0094D5A5 /* 18-envelope.png in Resources */,
 				93D1BA73138098FF0094D5A5 /* 22-skull-n-bones.png in Resources */,
 				93D1BAD313809E780094D5A5 /* glow.png in Resources */,
+				937FAFB51380B7B600507E51 /* avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +262,7 @@
 				2752544413790ADD005E9019 /* StackScrollViewController.m in Sources */,
 				93D1B7DD1380626C0094D5A5 /* RoundedUITableView.m in Sources */,
 				93D1BA8513809B570094D5A5 /* MenuTableViewCell.m in Sources */,
+				937FAFAC1380B52D00507E51 /* MenuHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
