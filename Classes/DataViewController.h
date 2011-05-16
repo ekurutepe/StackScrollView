@@ -14,6 +14,7 @@
 	RoundedUITableView*  _tableView;
 	
 	NSArray *tweets;
+	NSDateFormatter *formatter;
 }
 
 - (id)initWithFrame:(CGRect)frame squareCorners:(BOOL)squareCorners;

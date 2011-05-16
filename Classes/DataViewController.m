@@ -12,6 +12,7 @@
 #import "StackScrollViewController.h"
 #import "RoundedUITableView.h"
 #import "TweetTableViewCell.h"
+#import "NSDate+Formatting.h"
 
 @implementation DataViewController
 @synthesize tableView = _tableView;
@@ -24,6 +25,17 @@
     if (self = [super init])
 	{
 		tweets = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tweets" ofType:@"plist"]];
+		
+		//http://stackoverflow.com/questions/2002544/iphone-twitter-api-converting-time
+		formatter = [[NSDateFormatter alloc] init];
+		NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+		[formatter setLocale:usLocale]; 
+		[usLocale release];
+		[formatter setDateStyle:NSDateFormatterLongStyle];
+		[formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+		
+		// see http://unicode.org/reports/tr35/tr35-6.html#Date_Format_Patterns
+		[formatter setDateFormat: @"EEE MMM dd HH:mm:ss +0000 yyyy"];
 		
 		[self.view setFrame:frame];
 
@@ -87,11 +99,14 @@
     }
 	
 	NSDictionary *tweet = [tweets objectAtIndex:indexPath.row];
-    
+	
+	NSDate *createdAt = [formatter dateFromString:[tweet objectForKey:@"created_at"]];
+		    
 	cell.imageView.image = [UIImage imageNamed:@"avatar.png"];
 	cell.authorLabel.text = [[tweet objectForKey:@"user"] objectForKey:@"screen_name"];
 	cell.tweetLabel.text = [tweet objectForKey:@"text"];
-
+	cell.timestampLabel.text = [createdAt distanceOfTimeInWords];
+	
     return cell;
 }
 
@@ -117,6 +132,7 @@
 
 
 - (void)dealloc {
+	[formatter release];
 	[tweets release];
     [super dealloc];
 }

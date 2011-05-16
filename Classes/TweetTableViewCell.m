@@ -18,7 +18,7 @@
 	height += 18; // author label.
 	height += 5;  // padding between author and tweet.
 	
-	CGSize tweetTextSize = [tweetText sizeWithFont:[UIFont boldSystemFontOfSize:[UIFont systemFontSize]] constrainedToSize:CGSizeMake(390, 10000) lineBreakMode:UILineBreakModeWordWrap];
+	CGSize tweetTextSize = [tweetText sizeWithFont:[UIFont boldSystemFontOfSize:[UIFont labelFontSize]] constrainedToSize:CGSizeMake(390, 10000) lineBreakMode:UILineBreakModeWordWrap];
 	
 	height += tweetTextSize.height;
 	height += 12; // bottom padding.
@@ -38,18 +38,32 @@
 		imageView = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12, 48, 48)];
 		[self.contentView addSubview:imageView];
 		
-		authorLabel = [[UILabel alloc] initWithFrame:CGRectMake(72, 12, 200, 18)];
-		authorLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+		authorLabel = [[UILabel alloc] initWithFrame:CGRectMake(72, 12, 220, 18)];
+		authorLabel.font = [UIFont boldSystemFontOfSize:[UIFont labelFontSize]];
 		authorLabel.highlightedTextColor = [UIColor whiteColor];
 		authorLabel.backgroundColor = self.contentView.backgroundColor;
 		[self.contentView addSubview:authorLabel];
 		
 		tweetLabel = [[UILabel alloc] initWithFrame:CGRectMake(72, 35, 390, 40)];
-		tweetLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
+		tweetLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
 		tweetLabel.highlightedTextColor = [UIColor whiteColor];
 		tweetLabel.numberOfLines = 0;
 		tweetLabel.backgroundColor = self.contentView.backgroundColor;
 		[self.contentView addSubview:tweetLabel];
+		
+		timestampLabel = [[UILabel alloc] initWithFrame:CGRectMake(292, 12, 170, 18)];
+		timestampLabel.backgroundColor = self.contentView.backgroundColor;
+		timestampLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
+		timestampLabel.textAlignment = UITextAlignmentRight;
+		timestampLabel.text = @"16 Minutes Ago";
+		[self.contentView addSubview:timestampLabel];
+		
+		if (NO)
+		{
+			authorLabel.backgroundColor = [UIColor magentaColor];
+			tweetLabel.backgroundColor = [UIColor greenColor];
+			timestampLabel.backgroundColor = [UIColor redColor];
+		}
 	}
 	
 	return self;
