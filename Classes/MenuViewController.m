@@ -11,6 +11,7 @@
 #import "StackScrollViewAppDelegate.h"
 #import "RootViewController.h"
 #import "StackScrollViewController.h"
+#import "MenuTableViewCell.h"
 
 #define kCellText @"CellText"
 #define kCellImage @"CellImage"
@@ -34,11 +35,11 @@
 		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"06-magnify.png"], kCellImage, NSLocalizedString(@"Search",@""), kCellText, nil]];
 		
 		_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
-		[_tableView setDelegate:self];
-		[_tableView setDataSource:self];
-		[_tableView setBackgroundColor:[UIColor clearColor]];
-		_tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
-		[self.view addSubview:_tableView];		
+		_tableView.delegate = self;
+		_tableView.dataSource = self;
+		_tableView.backgroundColor = [UIColor clearColor];
+		_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+		[self.view addSubview:_tableView];
 	}
     return self;
 }
@@ -87,16 +88,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MenuTableViewCell *cell = (MenuTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		UIView* bgView = [[[UIView alloc] init] autorelease];
-		[bgView setBackgroundColor:[UIColor colorWithWhite:2 alpha:0.2]];
-		[cell setSelectedBackgroundView:bgView];
+        cell = [[[MenuTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
 	cell.textLabel.text = [[_cellContents objectAtIndex:indexPath.row] objectForKey:kCellText];
 	cell.imageView.image = [[_cellContents objectAtIndex:indexPath.row] objectForKey:kCellImage];
+	
+	cell.glowView.hidden = indexPath.row != 3;
 
     return cell;
 }
