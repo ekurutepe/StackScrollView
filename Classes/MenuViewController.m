@@ -13,6 +13,7 @@
 #import "StackScrollViewController.h"
 #import "MenuTableViewCell.h"
 #import "MenuHeaderView.h"
+#import "MenuWatermarkFooter.h"
 
 #define kCellText @"CellText"
 #define kCellImage @"CellImage"
@@ -44,6 +45,7 @@
 		_tableView.dataSource = self;
 		_tableView.backgroundColor = [UIColor clearColor];
 		_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+		_tableView.tableFooterView = [[[MenuWatermarkFooter alloc] initWithFrame:CGRectMake(0, 0, 200, 80)] autorelease];
 		[self.view addSubview:_tableView];
 	}
     return self;
