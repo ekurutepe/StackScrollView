@@ -30,7 +30,6 @@
 		formatter = [[NSDateFormatter alloc] init];
 		NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
 		[formatter setLocale:usLocale]; 
-		[usLocale release];
 		[formatter setDateStyle:NSDateFormatterLongStyle];
 		[formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
 		
@@ -95,7 +94,7 @@
     TweetTableViewCell *cell = (TweetTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
  
 	if (cell == nil) {
-        cell = [[[TweetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[TweetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 	
 	NSDictionary *tweet = [tweets objectAtIndex:indexPath.row];
@@ -131,11 +130,6 @@
 }
 
 
-- (void)dealloc {
-	[formatter release];
-	[tweets release];
-    [super dealloc];
-}
 
 
 @end

@@ -15,10 +15,10 @@
 	UILabel *tweetLabel;
 	UILabel *timestampLabel;
 }
-@property(nonatomic,retain) UIImageView *imageView;
-@property(nonatomic,retain) UILabel *authorLabel;
-@property(nonatomic,retain) UILabel *tweetLabel;
-@property(nonatomic,retain) UILabel *timestampLabel;
+@property(nonatomic,strong) UIImageView *imageView;
+@property(nonatomic,strong) UILabel *authorLabel;
+@property(nonatomic,strong) UILabel *tweetLabel;
+@property(nonatomic,strong) UILabel *timestampLabel;
 
 + (int)heightForTweetWithText:(NSString*)tweetText;
 

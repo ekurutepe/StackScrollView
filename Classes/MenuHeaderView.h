@@ -13,6 +13,6 @@
 	UIImageView *imageView;
 	UILabel *textLabel;
 }
-@property(nonatomic,retain) UIImageView *imageView;
-@property(nonatomic,retain) UILabel *textLabel;
+@property(nonatomic,strong) UIImageView *imageView;
+@property(nonatomic,strong) UILabel *textLabel;
 @end

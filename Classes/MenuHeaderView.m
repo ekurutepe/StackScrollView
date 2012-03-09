@@ -38,12 +38,5 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	self.textLabel = nil;
-	self.imageView = nil;
-	
-	[super dealloc];
-}
 
 @end

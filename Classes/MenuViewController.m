@@ -45,7 +45,7 @@
 		_tableView.dataSource = self;
 		_tableView.backgroundColor = [UIColor clearColor];
 		_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-		_tableView.tableFooterView = [[[MenuWatermarkFooter alloc] initWithFrame:CGRectMake(0, 0, 200, 80)] autorelease];
+		_tableView.tableFooterView = [[MenuWatermarkFooter alloc] initWithFrame:CGRectMake(0, 0, 200, 80)];
 		[self.view addSubview:_tableView];
 	}
     return self;
@@ -97,7 +97,7 @@
     
     MenuTableViewCell *cell = (MenuTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[MenuTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[MenuTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
 	cell.textLabel.text = [[_cellContents objectAtIndex:indexPath.row] objectForKey:kCellText];
@@ -139,11 +139,6 @@
 }
 
 
-- (void)dealloc {
-	[_menuHeader release];
-	[_cellContents release];
-    [super dealloc];
-}
 
 
 @end
