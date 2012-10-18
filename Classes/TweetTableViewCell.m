@@ -82,13 +82,4 @@
 	tweetLabel.frame = tweetFrame;
 }
 
-- (void)dealloc
-{
-	self.imageView = nil;
-	self.authorLabel = nil;
-	self.tweetLabel = nil;
-	self.timestampLabel = nil;
-	
-	[super dealloc];
-}
 @end

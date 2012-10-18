@@ -12,5 +12,5 @@
 {
 	UIImageView *glowView;
 }
-@property(nonatomic,retain) UIImageView *glowView;
+@property(nonatomic,strong) UIImageView *glowView;
 @end

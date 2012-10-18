@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2752544413790ADD005E9019 /* StackScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2752544313790ADD005E9019 /* StackScrollViewController.m */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		312FC87F1380DA88003610C2 /* License in Resources */ = {isa = PBXBuildFile; fileRef = 312FC87E1380DA88003610C2 /* License */; };
 		937FAFAC1380B52D00507E51 /* MenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 937FAFAB1380B52D00507E51 /* MenuHeaderView.m */; };
 		937FAFB51380B7B600507E51 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 937FAFB41380B7B600507E51 /* avatar.png */; };
 		937FAFFF1380BF5C00507E51 /* MenuWatermarkFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 937FAFFE1380BF5C00507E51 /* MenuWatermarkFooter.m */; };
@@ -28,7 +29,6 @@
 		93D1BA73138098FF0094D5A5 /* 22-skull-n-bones.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D1BA6D138098FF0094D5A5 /* 22-skull-n-bones.png */; };
 		93D1BA8513809B570094D5A5 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1BA8413809B570094D5A5 /* MenuTableViewCell.m */; };
 		93D1BAD313809E780094D5A5 /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D1BAD213809E780094D5A5 /* glow.png */; };
-		312FC87F1380DA88003610C2 /* License in Resources */ = {isa = PBXBuildFile; fileRef = 312FC87E1380DA88003610C2 /* License */; };
 		C12A8A50131776B500E7CA88 /* UIViewWithShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = C12A8A4F131776B500E7CA88 /* UIViewWithShadow.m */; };
 		C1842AEF1316641600D1538C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1842AEE1316641600D1538C /* RootViewController.m */; };
 		C1842AF9131664DD00D1538C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1842AF8131664DD00D1538C /* MenuViewController.m */; };
@@ -306,15 +306,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = StackScrollView_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StackScrollView-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = StackScrollView;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
@@ -324,12 +325,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = StackScrollView_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StackScrollView-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = StackScrollView;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -343,6 +345,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -358,7 +361,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

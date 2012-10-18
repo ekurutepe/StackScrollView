@@ -60,7 +60,6 @@
 		formatter = [[NSDateFormatter alloc] init];
 		NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
 		[formatter setLocale:usLocale];
-		[usLocale release];
 		[formatter setDateStyle:NSDateFormatterLongStyle];
 		[formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
 
@@ -74,27 +73,14 @@
 		[_tableView setDelegate:self];
 		[_tableView setDataSource:self];
 
-    UIView* footerView =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
-		_tableView.tableFooterView = footerView;
-    [footerView release];
+        UIView* footerView =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
+        _tableView.tableFooterView = footerView;
 
 		[_tableView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
 		[self.view addSubview:_tableView];
 	}
     return self;
 }
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
-}
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Override to allow orientations other than the default portrait orientation.
@@ -129,7 +115,7 @@
     TweetTableViewCell *cell = (TweetTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
 	if (cell == nil) {
-        cell = [[[TweetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[TweetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
 	NSDictionary *tweet = [tweets objectAtIndex:indexPath.row];
@@ -151,7 +137,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DataViewController *dataViewController = [[DataViewController alloc] initWithFrame:CGRectMake(0, 0, 477, self.view.frame.size.height) squareCorners:YES];
 	[[StackScrollViewAppDelegate instance].rootViewController.stackScrollViewController addViewInSlider:dataViewController invokeByController:self isStackStartView:FALSE];
-	[dataViewController release];
 }
 
 
@@ -166,11 +151,6 @@
 }
 
 
-- (void)dealloc {
-	[formatter release];
-	[tweets release];
-    [super dealloc];
-}
 
 
 @end

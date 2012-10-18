@@ -17,13 +17,11 @@
 		UIView* topLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 1)];
 		topLine.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.25];
 		[self addSubview:topLine];
-		[topLine release];
 		
 		UIImageView *watermark = [[UIImageView alloc] initWithFrame:CGRectMake(0, 1, 200, 79)];
 		watermark.contentMode = UIViewContentModeCenter;
 		watermark.image = [UIImage imageNamed:@"watermark.png"];
 		[self addSubview:watermark];
-		[watermark release];
 	}
 	return self;
 }
