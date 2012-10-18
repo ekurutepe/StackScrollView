@@ -63,12 +63,12 @@
 		_menuHeader.textLabel.text = @"cocoacontrols";
 
 		_cellContents = [[NSMutableArray alloc] init];
-		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"08-chat.png"], kCellImage, NSLocalizedString(@"Timeline",@""), kCellText, nil]];
-		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"22-skull-n-bones.png"], kCellImage, NSLocalizedString(@"Mentions",@""), kCellText, nil]];
-		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"22-skull-n-bones.png"], kCellImage, NSLocalizedString(@"Lists",@""), kCellText, nil]];
-		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"18-envelope.png"], kCellImage, NSLocalizedString(@"Messages",@""), kCellText, nil]];
-		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"111-user.png"], kCellImage, NSLocalizedString(@"Profile",@""), kCellText, nil]];
-		[_cellContents addObject:[NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"06-magnify.png"], kCellImage, NSLocalizedString(@"Search",@""), kCellText, nil]];
+		[_cellContents addObject:@{kCellImage: [UIImage imageNamed:@"08-chat.png"], kCellText: NSLocalizedString(@"Timeline",@"")}];
+		[_cellContents addObject:@{kCellImage: [UIImage imageNamed:@"22-skull-n-bones.png"], kCellText: NSLocalizedString(@"Mentions",@"")}];
+		[_cellContents addObject:@{kCellImage: [UIImage imageNamed:@"22-skull-n-bones.png"], kCellText: NSLocalizedString(@"Lists",@"")}];
+		[_cellContents addObject:@{kCellImage: [UIImage imageNamed:@"18-envelope.png"], kCellText: NSLocalizedString(@"Messages",@"")}];
+		[_cellContents addObject:@{kCellImage: [UIImage imageNamed:@"111-user.png"], kCellText: NSLocalizedString(@"Profile",@"")}];
+		[_cellContents addObject:@{kCellImage: [UIImage imageNamed:@"06-magnify.png"], kCellText: NSLocalizedString(@"Search",@"")}];
 
 		_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
 		_tableView.delegate = self;
@@ -130,8 +130,8 @@
         cell = [[MenuTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
-	cell.textLabel.text = [[_cellContents objectAtIndex:indexPath.row] objectForKey:kCellText];
-	cell.imageView.image = [[_cellContents objectAtIndex:indexPath.row] objectForKey:kCellImage];
+	cell.textLabel.text = _cellContents[indexPath.row][kCellText];
+	cell.imageView.image = _cellContents[indexPath.row][kCellImage];
 
 	cell.glowView.hidden = indexPath.row != 3;
 

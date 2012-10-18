@@ -104,7 +104,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return [TweetTableViewCell heightForTweetWithText:[[tweets objectAtIndex:indexPath.row] objectForKey:@"text"]];
+	return [TweetTableViewCell heightForTweetWithText:tweets[indexPath.row][@"text"]];
 }
 
 // Customize the appearance of table view cells.
@@ -118,13 +118,13 @@
         cell = [[TweetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
-	NSDictionary *tweet = [tweets objectAtIndex:indexPath.row];
+	NSDictionary *tweet = tweets[indexPath.row];
 
-	NSDate *createdAt = [formatter dateFromString:[tweet objectForKey:@"created_at"]];
+	NSDate *createdAt = [formatter dateFromString:tweet[@"created_at"]];
 
 	cell.imageView.image = [UIImage imageNamed:@"avatar.png"];
-	cell.authorLabel.text = [[tweet objectForKey:@"user"] objectForKey:@"screen_name"];
-	cell.tweetLabel.text = [tweet objectForKey:@"text"];
+	cell.authorLabel.text = tweet[@"user"][@"screen_name"];
+	cell.tweetLabel.text = tweet[@"text"];
 	cell.timestampLabel.text = [createdAt distanceOfTimeInWords];
 
     return cell;
