@@ -57,6 +57,7 @@
 
 	rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
 	[self.window setBackgroundColor:[UIColor clearColor]];
+    self.window.rootViewController = rootViewController;
     [self.window addSubview:rootViewController.view];
     [self.window makeKeyAndVisible];
 
