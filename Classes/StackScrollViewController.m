@@ -679,7 +679,7 @@ const NSInteger SLIDE_VIEWS_START_X_POS = 0;
                 bounceAnimationLeft2.removedOnCompletion = YES;
                 bounceAnimationLeft2.additive = NO;
                 [_viewAtLeft2.layer addAnimation:bounceAnimationLeft2 forKey:@"bounceAnimationviewAtLeft2"];
-                [self performSelector:@selector(callArrangeVerticalBar) withObject:nil afterDelay:0.4];
+                [self performSelector:@selector(arrangeVerticalBar) withObject:nil afterDelay:0.4];
                 isBouncing = TRUE;
             }
             
@@ -693,13 +693,9 @@ const NSInteger SLIDE_VIEWS_START_X_POS = 0;
 }
 
 
-- (void)callArrangeVerticalBar{
-	[self arrangeVerticalBar];
-}
 
-- (void)loadView {
-	[super loadView];
-}
+
+
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
