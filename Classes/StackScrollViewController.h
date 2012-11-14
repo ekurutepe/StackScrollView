@@ -39,27 +39,28 @@
 #import <Foundation/Foundation.h>
 
 
-@interface StackScrollViewController :  UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate> {
-	
-	UIView* viewAtLeft;
-	UIView* viewAtRight;
-	UIView* viewAtLeft2;
-	UIView* viewAtRight2;	
-	UIView* viewAtRightAtTouchBegan;
-	UIView* viewAtLeftAtTouchBegan;
-	
-	NSString* dragDirection;
-	
-	CGFloat viewXPosition;		
-	CGFloat displacementPosition;
-	CGFloat lastTouchPoint;
-	CGFloat slideStartPosition;
-	
-	CGPoint positionOfViewAtRightAtTouchBegan;
-	CGPoint positionOfViewAtLeftAtTouchBegan;
-	
-
-}
+@interface StackScrollViewController :  UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+//{
+//	
+//	UIView* viewAtLeft;
+//	UIView* viewAtRight;
+//	UIView* viewAtLeft2;
+//	UIView* viewAtRight2;	
+//	UIView* viewAtRightAtTouchBegan;
+//	UIView* viewAtLeftAtTouchBegan;
+//	
+//	NSString* dragDirection;
+//	
+//	CGFloat viewXPosition;		
+//	CGFloat displacementPosition;
+//	CGFloat lastTouchPoint;
+//	CGFloat slideStartPosition;
+//	
+//	CGPoint positionOfViewAtRightAtTouchBegan;
+//	CGPoint positionOfViewAtLeftAtTouchBegan;
+//	
+//
+//}
 
 - (void) addViewInSlider:(UIViewController*)controller invokeByController:(UIViewController*)invokeByController isStackStartView:(BOOL)isStackStartView;
 - (void)bounceBack:(NSString*)animationID finished:(NSNumber*)finished context:(void*)context;
