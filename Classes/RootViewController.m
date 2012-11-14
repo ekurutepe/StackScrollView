@@ -103,9 +103,6 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-	rootView.autoresizingMask = UIViewAutoresizingFlexibleWidth + UIViewAutoresizingFlexibleHeight;
-	[rootView setBackgroundColor:[UIColor clearColor]];
 
 	leftMenuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, self.view.frame.size.height)];
 	leftMenuView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
@@ -115,7 +112,7 @@
 	[menuViewController viewDidAppear:FALSE];
 	[leftMenuView addSubview:menuViewController.view];
 
-	rightSlideView = [[UIView alloc] initWithFrame:CGRectMake(leftMenuView.frame.size.width, 0, rootView.frame.size.width - leftMenuView.frame.size.width, rootView.frame.size.height)];
+	rightSlideView = [[UIView alloc] initWithFrame:CGRectMake(leftMenuView.frame.size.width, 0, self.view.frame.size.width - leftMenuView.frame.size.width, self.view.frame.size.height)];
 	rightSlideView.autoresizingMask = UIViewAutoresizingFlexibleWidth + UIViewAutoresizingFlexibleHeight;
 	stackScrollViewController = [[StackScrollViewController alloc] init];
 	[stackScrollViewController.view setFrame:CGRectMake(0, 0, rightSlideView.frame.size.width, rightSlideView.frame.size.height)];
@@ -124,10 +121,10 @@
 	[stackScrollViewController viewDidAppear:FALSE];
 	[rightSlideView addSubview:stackScrollViewController.view];
 
-	[rootView addSubview:leftMenuView];
-	[rootView addSubview:rightSlideView];
 	self.view.backgroundColor = [[UIColor scrollViewTexturedBackgroundColor] colorWithAlphaComponent:0.5];
-	[self.view addSubview:rootView];
+	[self.view addSubview:leftMenuView];
+	[self.view addSubview:rightSlideView];
+
 }
 
 
