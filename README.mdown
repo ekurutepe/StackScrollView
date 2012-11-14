@@ -3,7 +3,7 @@ StackScrollView Like Twitter iPad App
 
 StackScrollView project is a demo app for creating view like twitter app for ipad, created by the mobile development team at [raw engineering][]. Also checkout our [FlipView Project][]
 
-Note: this project is only for iPad under Xcode version 3.2.5
+Works with Xcode 4.5 and iOS6
 
 StackScrollView is a simple way to present a sliding view interface similar to Twitter's iPad App. It comprises of three classes, RootViewController,MenuViewController and StackScrollViewController.
 
