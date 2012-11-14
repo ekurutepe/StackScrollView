@@ -56,6 +56,11 @@ const NSInteger SLIDE_VIEWS_START_X_POS = 0;
 @property (nonatomic, weak) UIView * viewAtLeftAtTouchBegan;
 @property (nonatomic) CGPoint positionOfViewAtRightAtTouchBegan;
 @property (nonatomic) CGPoint positionOfViewAtLeftAtTouchBegan;
+
+@property (nonatomic, strong) UIView* slideViews;
+@property (nonatomic, strong) UIView* borderViews;
+@property (nonatomic, assign) CGFloat slideStartPosition;
+
 @end
 
 @implementation StackScrollViewController
