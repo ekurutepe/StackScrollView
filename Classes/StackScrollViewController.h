@@ -38,8 +38,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class StackScrollViewController;
+
 
 @interface StackScrollViewController :  UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+
 
 
 - (void) addViewInSlider:(UIViewController*)controller invokeByController:(UIViewController*)invokeByController isStackStartView:(BOOL)isStackStartView;

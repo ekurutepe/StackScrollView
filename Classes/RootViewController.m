@@ -41,7 +41,7 @@
 
 #import "MenuViewController.h"
 #import "StackScrollViewController.h"
-
+#import "DataViewController.h"
 
 @interface UIViewExt : UIView {}
 @end
@@ -104,15 +104,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	leftMenuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, self.view.frame.size.height)];
-	leftMenuView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-	menuViewController = [[MenuViewController alloc] initWithFrame:CGRectMake(0, 0, leftMenuView.frame.size.width, leftMenuView.frame.size.height)];
-	[menuViewController.view setBackgroundColor:[UIColor clearColor]];
-	[menuViewController viewWillAppear:FALSE];
-	[menuViewController viewDidAppear:FALSE];
-	[leftMenuView addSubview:menuViewController.view];
+//	leftMenuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, self.view.frame.size.height)];
+//	leftMenuView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//	menuViewController = [[MenuViewController alloc] initWithFrame:CGRectMake(0, 0, leftMenuView.frame.size.width, leftMenuView.frame.size.height)];
+//	[menuViewController.view setBackgroundColor:[UIColor clearColor]];
+//	[menuViewController viewWillAppear:FALSE];
+//	[menuViewController viewDidAppear:FALSE];
+//	[leftMenuView addSubview:menuViewController.view];
 
-	rightSlideView = [[UIView alloc] initWithFrame:CGRectMake(leftMenuView.frame.size.width, 0, self.view.frame.size.width - leftMenuView.frame.size.width, self.view.frame.size.height)];
+	rightSlideView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 	rightSlideView.autoresizingMask = UIViewAutoresizingFlexibleWidth + UIViewAutoresizingFlexibleHeight;
 	stackScrollViewController = [[StackScrollViewController alloc] init];
 	[stackScrollViewController.view setFrame:CGRectMake(0, 0, rightSlideView.frame.size.width, rightSlideView.frame.size.height)];
@@ -122,8 +122,11 @@
 	[rightSlideView addSubview:stackScrollViewController.view];
 
 	self.view.backgroundColor = [[UIColor scrollViewTexturedBackgroundColor] colorWithAlphaComponent:0.5];
-	[self.view addSubview:leftMenuView];
+//	[self.view addSubview:leftMenuView];
 	[self.view addSubview:rightSlideView];
+    
+    DataViewController *dataViewController = [[DataViewController alloc] initWithFrame:CGRectMake(0, 0, 477, self.view.frame.size.height) squareCorners:NO];
+	[stackScrollViewController addViewInSlider:dataViewController invokeByController:self isStackStartView:TRUE];
 
 }
 
